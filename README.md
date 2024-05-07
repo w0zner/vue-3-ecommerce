@@ -1,18 +1,40 @@
-# vue-3-ecommerce
+# Vue 3 Ecommerce
 
-This template should help get you started developing with Vue 3 in Vite.
+Tienda Online.
 
-## Recommended IDE Setup
+## Entities 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Product
 
-## Type Support for `.vue` Imports in TS
+- id
+- name
+- description 
+- price
+- image
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### Category
 
-## Customize configuration
+- id
+- name
+- description
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Cart
+
+- products: '[{productId: 1, quantity: 3}, {productId: 3, quantity: 2}]'
+
+
+## Components
+
+### ProductCard
+
+## Pages
+
+- / -> Todos los productos
+- /product/1 -> Detalle de producto por id
+- /category/5 -> Productos por categoria
+- /cart -> Ver carrito de compras
+
+
 
 ## Project Setup
 
