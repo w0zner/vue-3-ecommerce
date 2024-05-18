@@ -17,4 +17,7 @@
 <template>
     <h1>Contador: {{ count }}</h1>
     <button @click="increase">Aumentar</button>
+
+    <p v-if="count<=10">Vamos tu puedes!</p>
+    <p v-else>Lo lograste!</p>
 </template>
