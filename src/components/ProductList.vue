@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { CartDetail, Product } from './Type';
+    import type { CartDetail, Product } from '../model/Type';
     import ProductCard from './ProductCard.vue'
     import Cart from './Cart.vue'
 
@@ -37,7 +37,6 @@
 </script>
 
 <template>
-    <v-container>
         <v-row>
             <v-col v-for="product in products" cols="4" >
                 <ProductCard  :product="product" @addProduct="listenAddProduct(product.id)"/>
@@ -46,5 +45,4 @@
         
 
         <Cart :details="details"/>
-    </v-container>
 </template>

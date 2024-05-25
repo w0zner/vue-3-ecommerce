@@ -1,0 +1,4 @@
+<template>
+    Cart view
+</template>
+  
