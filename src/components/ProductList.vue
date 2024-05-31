@@ -2,11 +2,13 @@
     import type { CartDetail, Product } from '../model/Type';
     import ProductCard from './ProductCard.vue'
     import Cart from './Cart.vue'
+    import Book from './Books.vue'
 
     export default {
         components: {
             ProductCard,
-            Cart
+            Cart,
+            Book
         },
         data() {
            return {
@@ -45,4 +47,6 @@
         
 
         <Cart :details="details"/>
+
+        <!-- <Book /> -->
 </template>

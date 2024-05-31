@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { PropType } from 'vue';
     import type { Product } from '../model/Type';
+import { useCartStore } from '@/stores/cart';
     export default {
         props: {
             product: {
@@ -14,11 +15,13 @@
                 products : {name: 'silla', price: 26}
            }
         },*/
-        emits: ['addProduct'],
+        //emits: ['addProduct'],
         methods: {
             onClickAddProduct(){
               //console.log("agregando al carrito el producto " + this.product.id)  
-              this.$emit('addProduct');
+              //this.$emit('addProduct');
+              const cartStore = useCartStore();
+              cartStore.addProduct(this.product.id)
             }
         }
     }

@@ -1,11 +1,21 @@
 <script lang="ts">
     import type { PropType } from 'vue';
-import { CartDetail } from '../model/Type';
+    import type { CartDetail } from '../model/Type';
+    import { useCartStore } from '@/stores/cart';
     export default {
+        /* Ya no recibira por props sino por store(Pinia)
         props: {
             details: {
                 type: Object as PropType<Array<CartDetail>>,
                 required: true
+            }
+        }*/
+
+        //Accediendo al store que almacena los detalles del carrito
+        computed: {
+            details() {
+                const cartStore = useCartStore();
+                return cartStore.details;
             }
         }
     }
