@@ -15,6 +15,9 @@
                 products : <Array<Product>>[
                     {id:1, name: 'Silla', price: 26},
                     {id:2, name: 'Monitor', price: 450},
+                    {id:3, name: 'Mouse', price: 10},
+                    {id:1, name: 'Silla', price: 26},
+                    {id:2, name: 'Monitor', price: 450},
                     {id:3, name: 'Mouse', price: 10}
                 ],
 
@@ -46,7 +49,7 @@
         </v-row>
         
 
-        <Cart :details="details"/>
+        <!-- <Cart :details="details"/> -->
 
         <!-- <Book /> -->
 </template>
