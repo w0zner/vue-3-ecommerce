@@ -1,6 +1,4 @@
 <script lang="ts">
-    import type { PropType } from 'vue';
-    import type { CartDetail } from '../model/Type';
     import { useCartStore } from '@/stores/cart';
     export default {
         /* Ya no recibira por props sino por store(Pinia)
@@ -12,10 +10,23 @@
         }*/
 
         //Accediendo al store que almacena los detalles del carrito
+        methods: {
+            decrementQuantity(id: number) {
+                this.cartStore.decrement(id);
+            },
+            incrementQuantity(id: number) {
+                this.cartStore.increment(id);
+            },
+            deleteProduct(id: number) {
+                this.cartStore.deleteProduct(id);
+            }
+        },
         computed: {
+            cartStore() {
+                return useCartStore();
+            },
             details() {
-                const cartStore = useCartStore();
-                return cartStore.details;
+                return this.cartStore.details;
             }
         }
     }
@@ -31,7 +42,19 @@
             <v-list v-if="details.length > 0">
                 <v-list-item v-for="item in details" :value="item.productId">
                     <v-list-item-title>
-                        Producto: {{ item.productId }} - Cantidad: {{ item.quantity }}
+                        Producto: {{ item.productId }} 
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <v-btn @click="decrementQuantity(item.productId)" variant="tonal" color="yellow-lighten-5">
+                            -
+                        </v-btn>
+                        Cantidad: {{ item.quantity }}
+                        <v-btn @click="incrementQuantity(item.productId)" variant="tonal" color="yellow-lighten-5">
+                            +
+                        </v-btn>
+                        &nbsp;
+                        <v-btn @click="deleteProduct(item.productId)" variant="tonal" color="red-accent-1">
+                            Eliminar
+                        </v-btn>
                     </v-list-item-title>
                 </v-list-item>
             </v-list>

@@ -30,5 +30,28 @@ export const useCartStore = defineStore('cart', {
         this.details.push({productId: productId, quantity: 1})
       }
     },
+    increment(productId: number) {
+      const foundDetail= this.details.find(d => d.productId === productId);
+      if(foundDetail) {   
+        foundDetail.quantity += 1;
+      }
+    },
+    decrement(productId: number) {
+      const foundDetail= this.details.find(d => d.productId === productId);
+      if(foundDetail) {   
+        foundDetail.quantity -= 1;
+
+        if(foundDetail.quantity == 0) {
+          this.deleteProduct(productId);
+        }
+      }
+    },
+    deleteProduct(productId: number) {
+      const index = this.details.findIndex(d => d.productId === productId);
+      
+      if(index > -1) {   
+        this.details.splice(index, 1);
+      }  
+    }
   },
 })
