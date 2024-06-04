@@ -21,7 +21,7 @@ import { useCartStore } from '@/stores/cart';
               //console.log("agregando al carrito el producto " + this.product.id)  
               //this.$emit('addProduct');
               const cartStore = useCartStore();
-              cartStore.addProduct(this.product.id)
+              cartStore.addProduct(this.product)
             }
         }
     }

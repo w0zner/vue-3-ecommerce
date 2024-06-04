@@ -1,5 +1,6 @@
 <script lang="ts">
     import { useCartStore } from '@/stores/cart';
+    import { mapActions, mapState } from 'pinia';
     import { RouterLink } from 'vue-router';
 
     export default {
@@ -16,6 +17,8 @@
             RouterLink
         },
         methods: {
+            /*
+            //Esto seria si no se usa mapActions de pinia
             decrementQuantity(id: number) {
                 this.cartStore.decrement(id);
             },
@@ -25,14 +28,28 @@
             deleteProduct(id: number) {
                 this.cartStore.deleteProduct(id);
             }
+            */
+
+            //Pinia helper para asociar funciones con actions del store
+            ...mapActions(useCartStore, {
+                decrementQuantity: 'decrement',
+                incrementQuantity: 'increment',
+                deleteProduct: 'deleteProduct'
+            })
         },
         computed: {
+            /*
             cartStore() {
                 return useCartStore();
             },
             details() {
+                console.log("Cart")
+                console.log(this.cartStore.details)
                 return this.cartStore.details;
             }
+            */
+           //Pinia helper para asociar estados con el store
+           ...mapState(useCartStore, ['details'])
         }
     }
 </script>
@@ -45,16 +62,16 @@
             </v-card-title>
 
             <v-list v-if="details.length > 0">
-                <v-list-item v-for="item in details" :key="item.productId">
+                <v-list-item v-for="item in details" :key="item.product.id">
                     <v-list-item-title>
                         <v-icon icon="mdi-package-variant-closed" />
-                        Producto: {{ item.productId }} 
+                        Producto: {{ item.product.name }} 
                         
-                        <v-btn @click="decrementQuantity(item.productId)" variant="tonal" color="white" size="small" icon="mdi-minus-box" class="ml-5" />
+                        <v-btn @click="decrementQuantity(item.product.id)" variant="tonal" color="white" size="small" icon="mdi-minus-box" class="ml-5" />
                         Cantidad: {{ item.quantity }}
-                        <v-btn @click="incrementQuantity(item.productId)" variant="tonal" color="white" size="small" icon="mdi-plus-box" />
+                        <v-btn @click="incrementQuantity(item.product.id)" variant="tonal" color="white" size="small" icon="mdi-plus-box" />
                         
-                        <v-btn @click="deleteProduct(item.productId)" variant="tonal" color="red-accent-1" size="small" icon="mdi-trash-can" class="ml-3" />
+                        <v-btn @click="deleteProduct(item.product.id)" variant="tonal" color="red-accent-1" size="small" icon="mdi-trash-can" class="ml-3" />
                     </v-list-item-title>
                 </v-list-item>
             </v-list>
