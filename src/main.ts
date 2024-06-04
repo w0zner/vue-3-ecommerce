@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Contador from './components/ProductList.vue'
+//import Contador from './components/ProductList.vue'
 
 // Vuetify
 import 'vuetify/styles'

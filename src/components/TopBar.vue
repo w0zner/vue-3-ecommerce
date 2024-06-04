@@ -1,8 +1,11 @@
 <script lang="ts">
     import { useCartStore } from '@/stores/cart';
-import { RouterLink } from 'vue-router';
+    import { RouterLink } from 'vue-router';
 
     export default {
+        components: {
+            RouterLink
+        },
         computed: {
             itemsCount() {
                 const cartStore = useCartStore();
@@ -24,14 +27,14 @@ import { RouterLink } from 'vue-router';
 
             <RouterLink to="/cart" custom v-slot="{ navigate }">
                 <v-badge color="orange" :content="itemsCount" :model-value="itemsCount > 0">
-                    <v-btn :active="$route.name === 'cart'" variant="text" @click="navigate">
+                    <v-btn prepend-icon="mdi-cart" :active="$route.name === 'cart'" variant="text" @click="navigate">
                         Cart
                     </v-btn>
                 </v-badge>
             </RouterLink>
 
             <RouterLink to="/about" custom v-slot="{ navigate }">
-                <v-btn :active="$route.name === 'about'" variant="text" @click="navigate">
+                <v-btn prepend-icon="mdi-information" :active="$route.name === 'about'" variant="text" @click="navigate">
                     About
                 </v-btn>
             </RouterLink>

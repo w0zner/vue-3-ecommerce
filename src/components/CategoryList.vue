@@ -4,12 +4,12 @@
     export default {
         data() {
             return {
-                categories: <Array<Category>>[
+                categories: [
                     {id: 1, name: "Muebles"},
                     {id: 2, name: "Tecnología"},
                     {id: 3, name: "Bazar"},
                     {id: 4, name: "Juguetes"}
-                ]
+                ] as Category[]
             };
         }
     }

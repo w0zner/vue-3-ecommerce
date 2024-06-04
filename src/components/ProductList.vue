@@ -1,31 +1,25 @@
 <script lang="ts">
-    import type { CartDetail, Product } from '../model/Type';
+    import type { Product } from '../model/Type';
     import ProductCard from './ProductCard.vue'
-    import Cart from './Cart.vue'
-    import Book from './Books.vue'
 
     export default {
         components: {
-            ProductCard,
-            Cart,
-            Book
+            ProductCard
         },
         data() {
            return {
-                products : <Array<Product>>[
+                products : [
                     {id:1, name: 'Silla', price: 26},
                     {id:2, name: 'Monitor', price: 450},
                     {id:3, name: 'Mouse', price: 10},
                     {id:1, name: 'Silla', price: 26},
                     {id:2, name: 'Monitor', price: 450},
                     {id:3, name: 'Mouse', price: 10}
-                ],
-
-                details: <Array<CartDetail>>[]
+                ] as Product[]
             }
         },
         methods: {
-            listenAddProduct(product: number) {
+            /*listenAddProduct(product: number) {
                 console.log("Producto del hijo con id " + product)
 
                 const foundDetail= this.details.find(d => d.productId === product);
@@ -36,15 +30,15 @@
                 } else {
                     this.details.push({productId: product, quantity: 1})
                 }
-            }
+            }*/
         }
     }
 </script>
 
 <template>
         <v-row>
-            <v-col v-for="product in products" cols="4" >
-                <ProductCard  :product="product" @addProduct="listenAddProduct(product.id)"/>
+            <v-col v-for="product in products" :key="product.id" cols="4" >
+                <ProductCard  :product="product"/>
             </v-col>
         </v-row>
         

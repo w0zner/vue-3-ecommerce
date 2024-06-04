@@ -4,7 +4,8 @@
 
   export default {
     components: {
-      TopBar
+      TopBar,
+      RouterView
     }
   }
 </script>
