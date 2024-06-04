@@ -9,10 +9,10 @@
         data() {
            return {
                 products : [
-                    {id:1, name: 'Silla', price: 26},
-                    {id:2, name: 'Monitor', price: 450},
-                    {id:3, name: 'Mouse', price: 10},
-                    {id:1, name: 'Silla', price: 26},
+                    {id:1, name: 'Silla', price: 26, image: '/silla.webp'},
+                    {id:2, name: 'Monitor', price: 450, image: 'https://m.media-amazon.com/images/I/711U7Cqp-LL._AC_UF894,1000_QL80_.jpg'},
+                    {id:3, name: 'Mouse', price: 10, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/A_computer_mouse.jpg/800px-A_computer_mouse.jpg?20200621123504'},
+                    {id:1, name: 'Silla', price: 26, },
                     {id:2, name: 'Monitor', price: 450},
                     {id:3, name: 'Mouse', price: 10}
                 ] as Product[]

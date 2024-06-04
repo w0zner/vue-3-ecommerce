@@ -1,7 +1,8 @@
 <script lang="ts">
     import { useCartStore } from '@/stores/cart';
-    import { mapActions, mapState } from 'pinia';
+    import { mapState } from 'pinia';
     import { RouterLink } from 'vue-router';
+    import  ShoppingCartItem  from  './ShoppingCartItem.vue';
 
     export default {
         /* Ya no recibira por props sino por store(Pinia)
@@ -14,29 +15,10 @@
 
         //Accediendo al store que almacena los detalles del carrito
         components: {
-            RouterLink
+            RouterLink,
+            ShoppingCartItem
         },
-        methods: {
-            /*
-            //Esto seria si no se usa mapActions de pinia
-            decrementQuantity(id: number) {
-                this.cartStore.decrement(id);
-            },
-            incrementQuantity(id: number) {
-                this.cartStore.increment(id);
-            },
-            deleteProduct(id: number) {
-                this.cartStore.deleteProduct(id);
-            }
-            */
 
-            //Pinia helper para asociar funciones con actions del store
-            ...mapActions(useCartStore, {
-                decrementQuantity: 'decrement',
-                incrementQuantity: 'increment',
-                deleteProduct: 'deleteProduct'
-            })
-        },
         computed: {
             /*
             cartStore() {
@@ -61,20 +43,30 @@
                 Productos agregados al carrito
             </v-card-title>
 
-            <v-list v-if="details.length > 0">
-                <v-list-item v-for="item in details" :key="item.product.id">
-                    <v-list-item-title>
-                        <v-icon icon="mdi-package-variant-closed" />
-                        Producto: {{ item.product.name }} 
-                        
-                        <v-btn @click="decrementQuantity(item.product.id)" variant="tonal" color="white" size="small" icon="mdi-minus-box" class="ml-5" />
-                        Cantidad: {{ item.quantity }}
-                        <v-btn @click="incrementQuantity(item.product.id)" variant="tonal" color="white" size="small" icon="mdi-plus-box" />
-                        
-                        <v-btn @click="deleteProduct(item.product.id)" variant="tonal" color="red-accent-1" size="small" icon="mdi-trash-can" class="ml-3" />
-                    </v-list-item-title>
-                </v-list-item>
-            </v-list>
+            <v-table v-if="details.length > 0">
+                <thead>
+                    <tr>
+                        <th class="text-left">
+                            Producto
+                        </th>
+                        <th class="text-center">
+                            Cantidad
+                        </th>
+                        <th class="text-right">
+                            Precio Unitario
+                        </th>
+                        <th class="text-right">
+                            Subtotal
+                        </th>
+                        <th class="text-center">
+                            Acción
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ShoppingCartItem v-for="item in details" :key="item.product.id" :detail="item"/>
+                </tbody>
+            </v-table>
 
             <v-card-text  v-else>
                 <p style="color: grey;">No hay productos en el carrito. <RouterLink style="text-decoration: none; color: orange" to="/">Volver a la tienda</RouterLink></p>

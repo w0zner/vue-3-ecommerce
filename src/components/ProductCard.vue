@@ -23,6 +23,11 @@ import { useCartStore } from '@/stores/cart';
               const cartStore = useCartStore();
               cartStore.addProduct(this.product)
             }
+        },
+        computed: {
+            productImageUrl() {
+                return this.product.image ?? 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
+            }
         }
     }
 </script>
@@ -32,7 +37,7 @@ import { useCartStore } from '@/stores/cart';
 
         <v-img class="align-end text-white"
         height="200px"
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        :src="productImageUrl"
         cover>
         <v-card-title>{{ product.name }}</v-card-title>
         </v-img>
