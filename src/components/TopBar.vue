@@ -17,7 +17,7 @@ import { RouterLink } from 'vue-router';
             <v-avatar class="me-4 " color="grey-darken-1" size="32"></v-avatar>
 
             <RouterLink to="/" custom v-slot="{ navigate }">
-                <v-btn variant="text" @click="navigate">
+                <v-btn prepend-icon="mdi-home" variant="text" @click="navigate">
                     Home
                 </v-btn>
             </RouterLink>
