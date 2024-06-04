@@ -1,5 +1,7 @@
 <script lang="ts">
     import { useCartStore } from '@/stores/cart';
+    import { RouterLink } from 'vue-router';
+
     export default {
         /* Ya no recibira por props sino por store(Pinia)
         props: {
@@ -33,7 +35,7 @@
 </script>
 
 <template>
-    <v-card class="mt-4">
+    <v-card>
         <v-card-text>
             <v-card-title>
                 Productos agregados al carrito
@@ -60,7 +62,7 @@
             </v-list>
 
             <v-card-text  v-else="details.length==0" >
-                <p style="color: grey;">No hay productos en el carrito</p>
+                <p style="color: grey;">No hay productos en el carrito. <RouterLink style="text-decoration: none; color: orange" to="/">Volver a la tienda</RouterLink></p>
             </v-card-text>
         </v-card-text>
     </v-card>
