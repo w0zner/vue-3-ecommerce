@@ -17,21 +17,21 @@ import { RouterLink } from 'vue-router';
             <v-avatar class="me-4 " color="grey-darken-1" size="32"></v-avatar>
 
             <RouterLink to="/" custom v-slot="{ navigate }">
-                <v-btn variant="text" @click="navigate">
+                <v-btn :active="$route.name === 'home'" variant="text" @click="navigate">
                     Home
                 </v-btn>
             </RouterLink>
 
             <RouterLink to="/cart" custom v-slot="{ navigate }">
                 <v-badge color="orange" :content="itemsCount" :model-value="itemsCount > 0">
-                    <v-btn variant="text" @click="navigate">
+                    <v-btn :active="$route.name === 'cart'" variant="text" @click="navigate">
                         Cart
                     </v-btn>
                 </v-badge>
             </RouterLink>
 
             <RouterLink to="/about" custom v-slot="{ navigate }">
-                <v-btn variant="text" @click="navigate">
+                <v-btn :active="$route.name === 'about'" variant="text" @click="navigate">
                     About
                 </v-btn>
             </RouterLink>
