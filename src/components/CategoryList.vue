@@ -10,14 +10,24 @@
                     {id: 3, name: "Juguetes", description: "Juguetes para niños mayores a 3 años"}
                 ] as Category[]
             };
+        }, 
+        methods: {
+            selectCategory(categoryId: number) {
+                this.$router.push({ 
+                    name: 'category', 
+                    params: { categoryId } 
+                })
+            }   
         }
     }
 </script>
 <template>
     <v-sheet rounded="lg">
         <v-list rounded="lg">
-            <v-list-item v-for="category in categories" :key="category.id" :title="`${category.name}`" link>
-                
+            <v-list-item v-for="category in categories" :key="category.id" link @click="selectCategory(category.id)">
+                <v-list-item-title>
+                    {{ category.name }}
+                </v-list-item-title>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
