@@ -17,7 +17,9 @@
 <template>
     <v-app-bar flat>
         <v-container class="mx-auto d-flex align-center justify-center">
-            <v-avatar class="me-4 " color="grey-darken-1" size="32"></v-avatar>
+            <v-avatar class="me-4 " size="32">
+                <v-img src="/logo.jpg"></v-img>
+            </v-avatar>
 
             <RouterLink to="/" custom v-slot="{ navigate }">
                 <v-btn prepend-icon="mdi-home" :active="$route.name === 'home'" variant="text" @click="navigate">

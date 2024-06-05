@@ -9,12 +9,13 @@
         data() {
            return {
                 products : [
-                    {id:1, name: 'Silla', price: 26, image: '/silla.webp'},
-                    {id:2, name: 'Monitor', price: 450, image: 'https://m.media-amazon.com/images/I/711U7Cqp-LL._AC_UF894,1000_QL80_.jpg'},
-                    {id:3, name: 'Mouse', price: 10, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/A_computer_mouse.jpg/800px-A_computer_mouse.jpg?20200621123504'},
-                    {id:1, name: 'Silla', price: 26, },
-                    {id:2, name: 'Monitor', price: 450},
-                    {id:3, name: 'Mouse', price: 10}
+                    {id:1, name: 'Silla', price: 26, image: '/products/silla.webp', categoryId: 1},
+                    {id:2, name: 'Monitor', price: 450, image: '/products/monitor.jpg', categoryId: 2},
+                    {id:3, name: 'Mouse', price: 10, image: '/products/mouse.jpg', categoryId: 2},
+                    {id:4, name: 'Auricular', price: 30, image: '/products/headphones.jpg', categoryId: 2},
+                    {id:5, name: 'Parlante', price: 40, image: '/products/parlantes.jpg', categoryId: 2},
+                    {id:6, name: 'Miccrofóno', price: 15, image: '/products/microfono.jpg', categoryId: 2},
+                    {id:7, name: 'Organizador', price: 8, image: '/products/organizador.webp', categoryId: 1}
                 ] as Product[]
             }
         },

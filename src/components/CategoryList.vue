@@ -5,10 +5,9 @@
         data() {
             return {
                 categories: [
-                    {id: 1, name: "Muebles"},
-                    {id: 2, name: "Tecnología"},
-                    {id: 3, name: "Bazar"},
-                    {id: 4, name: "Juguetes"}
+                    {id: 1, name: "Oficina", description: "Productos para la oficina"},
+                    {id: 2, name: "Tecnología", description: "Productos tecnológicos para el hogar"},
+                    {id: 3, name: "Juguetes", description: "Juguetes para niños mayores a 3 años"}
                 ] as Category[]
             };
         }

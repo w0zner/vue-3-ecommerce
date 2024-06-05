@@ -52,10 +52,10 @@ import type { PropType } from 'vue';
         </td>
         <td class="text-center">
             <v-btn @click="decrementQuantity(detail.product.id)" variant="tonal" color="white" size="x-small"
-                icon="mdi-minus-box" class="ml-5" />
-            Cantidad: {{ detail.quantity }}
+                icon="mdi-minus-box" class="ml-5 mr-2" />
+            {{ detail.quantity }}
             <v-btn @click="incrementQuantity(detail.product.id)" variant="tonal" color="white" size="x-small"
-                icon="mdi-plus-box" />
+                icon="mdi-plus-box" class="ml-2"/>
         </td>
         <td class="text-right">
             ${{ detail.product.price }}

@@ -58,8 +58,8 @@
                         <th class="text-right">
                             Subtotal
                         </th>
-                        <th class="text-center">
-                            Acción
+                        <th class="text-center d-sr-only">
+                            Eliminar
                         </th>
                     </tr>
                 </thead>
