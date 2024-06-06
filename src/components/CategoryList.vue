@@ -12,6 +12,11 @@
             };
         }, 
         methods: {
+            clearCategory() {
+                this.$router.push({
+                    name: 'home'
+                })
+            },
             selectCategory(categoryId: number) {
                 this.$router.push({ 
                     name: 'category', 
@@ -24,15 +29,22 @@
 <template>
     <v-sheet rounded="lg">
         <v-list rounded="lg">
-            <v-list-item v-for="category in categories" :key="category.id" link @click="selectCategory(category.id)">
+            <v-list-subheader>Categorias</v-list-subheader>
+            <v-list-item link :active="$route.name === 'home'" @click="clearCategory()">
+                <v-list-item-title>
+                    Todos
+                </v-list-item-title>
+            </v-list-item>
+            <v-list-item v-for="category in categories" :key="category.id" link :active="$route.name === 'category' && Number($route.params.categoryId) === category.id" @click="selectCategory(category.id)">
                 <v-list-item-title>
                     {{ category.name }}
                 </v-list-item-title>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
-
-            <v-list-item color="grey-lighten-4" title="Order by price" link></v-list-item>
+            <v-list-subheader>Orden</v-list-subheader>
+            <v-list-item color="grey-lighten-4" title="Por precio" link></v-list-item>
+            <v-list-item color="grey-lighten-4" title="Por nombre" link></v-list-item>
         </v-list>
       </v-sheet>
 </template>
