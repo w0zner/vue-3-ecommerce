@@ -39,6 +39,14 @@ export const useProductsStore = defineStore('products', {
             if(state.order === 'name') {
                 return products.sort((a, b) => a.name.localeCompare(b.name))
             }
+
+            if(state.order === 'priceDesc') {
+                return products.sort((a, b) => b.price - a.price);
+            }
+            
+            if(state.order === 'nameDesc') {
+                return products.sort((a, b) => b.name.localeCompare(a.name))
+            }
         }
     },
     actions: {
@@ -50,6 +58,12 @@ export const useProductsStore = defineStore('products', {
         },
         orderByName() {
             this.order = 'name'
+        },
+        orderByPriceDesc() {
+            this.order = 'priceDesc'
+        },
+        orderByNameDesc() {
+            this.order = 'nameDesc'
         }
     }
   })
