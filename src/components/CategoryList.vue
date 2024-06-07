@@ -1,5 +1,7 @@
 <script lang="ts">
     import type { Category } from '@/model/Type';
+import { useProductsStore } from '@/stores/products';
+import { mapActions } from 'pinia';
 
     export default {
         data() {
@@ -17,12 +19,13 @@
                     name: 'home'
                 })
             },
-            selectCategory(categoryId: number) {
+            goToCategory(categoryId: number) {
                 this.$router.push({ 
                     name: 'category', 
                     params: { categoryId } 
                 })
-            }   
+            },
+            ...mapActions(useProductsStore, ['orderByPrice', 'orderByName'])   
         }
     }
 </script>
@@ -35,7 +38,7 @@
                     Todos
                 </v-list-item-title>
             </v-list-item>
-            <v-list-item v-for="category in categories" :key="category.id" link :active="$route.name === 'category' && Number($route.params.categoryId) === category.id" @click="selectCategory(category.id)">
+            <v-list-item v-for="category in categories" :key="category.id" link :active="$route.name === 'category' && Number($route.params.categoryId) === category.id" @click="goToCategory(category.id)">
                 <v-list-item-title>
                     {{ category.name }}
                 </v-list-item-title>
@@ -43,8 +46,8 @@
 
             <v-divider class="my-2"></v-divider>
             <v-list-subheader>Orden</v-list-subheader>
-            <v-list-item color="grey-lighten-4" title="Por precio" link></v-list-item>
-            <v-list-item color="grey-lighten-4" title="Por nombre" link></v-list-item>
+            <v-list-item title="Por precio" link @click="orderByPrice"></v-list-item>
+            <v-list-item title="Por nombre" link @click="orderByName"></v-list-item>
         </v-list>
       </v-sheet>
 </template>
