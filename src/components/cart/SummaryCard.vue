@@ -1,6 +1,6 @@
 <script lang="ts">
-import { useCartStore } from '@/stores/cart';
-import { mapState } from 'pinia';
+    import { useCartStore } from '@/stores/cart';
+    import { mapState } from 'pinia';
 
     export default {
         computed: {

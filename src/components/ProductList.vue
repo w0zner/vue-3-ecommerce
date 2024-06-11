@@ -1,8 +1,7 @@
 <script lang="ts">
     import { useProductsStore } from '@/stores/products';
-import type { Product } from '../model/Type';
     import ProductCard from './ProductCard.vue'
-import { mapState } from 'pinia';
+    import { mapState } from 'pinia';
 
     export default {
         components: {
@@ -12,7 +11,7 @@ import { mapState } from 'pinia';
             console.log("Hook mounted")
         },
         computed: {
-            ...mapState(useProductsStore, ['products'])
+            ...mapState(useProductsStore, ['products', 'loading'])
         },
         methods: {
             /*listenAddProduct(product: number) {
@@ -32,7 +31,11 @@ import { mapState } from 'pinia';
 </script>
 
 <template>
-        <v-row>
+        <div class="d-flex justify-center align-center h-100" v-if="loading" > 
+            <v-progress-circular indeterminate :size="72" color="orange" />
+        </div>        
+
+        <v-row v-else>
             <v-col v-for="product in products" :key="product.id" cols="4" >
                 <ProductCard  :product="product"/>
             </v-col>

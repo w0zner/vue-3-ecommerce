@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { CartDetail } from '@/model/Type';
-import { useCartStore } from '@/stores/cart';
-import { mapActions } from 'pinia';
-import type { PropType } from 'vue';
+    import type { CartDetail } from '@/model/Type';
+    import { useCartStore } from '@/stores/cart';
+    import { mapActions } from 'pinia';
+    import type { PropType } from 'vue';
 
     export default {
         props: {

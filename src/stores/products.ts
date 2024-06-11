@@ -1,12 +1,13 @@
 import type { Product } from '@/model/Type'
 import { defineStore } from 'pinia'
-import data from '../data/products.json';
+//import data from '../data/products.json';
 
 export const useProductsStore = defineStore('products', {
     state: () => ({
+        loading: true,
         order: '' as string,
         categoryId: null as number | null,
-        _products : data as Product[]
+        _products : [] as Product[]
     }),
     getters: {
         products(state) {
@@ -43,6 +44,14 @@ export const useProductsStore = defineStore('products', {
         }
     },
     actions: {
+        fetchProducts() {
+            fetch('/data/products.json')
+            .then(response => response.json())
+            .then(data => {
+                this._products = data,
+                this.loading = false
+            })
+        },
         selectCategory(paramId: number) {
             this.categoryId = paramId;
         },
