@@ -11,10 +11,10 @@
 </script>
 <template>
     <v-row>
-        <v-col cols="8">
+        <v-col cols="12" sm="8">
             <ShoppingCart />
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="4">
             <SummaryCard />
         </v-col>
     </v-row>
