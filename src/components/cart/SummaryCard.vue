@@ -4,7 +4,7 @@
 
     export default {
         computed: {
-            ...mapState(useCartStore, ['totalAmount'])
+            ...mapState(useCartStore, ['totalAmount', 'waLink'])
         }
     }
 </script>
@@ -17,7 +17,7 @@
             Total a pagar: ${{ totalAmount }}
         </v-card-subtitle>
         <v-card-text>
-            <v-btn variant="tonal" color="orange">
+            <v-btn :href="waLink" target="_blank" variant="tonal" color="orange">
                 Finalizar pedido
             </v-btn>
         </v-card-text>

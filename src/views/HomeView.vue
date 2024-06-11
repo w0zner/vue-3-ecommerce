@@ -39,10 +39,10 @@ export default {
 
 <template>
   <v-row>
-    <v-col cols="2">
+    <v-col cols="12" sm="3" xs="3">
       <LeftMenu />
     </v-col>
-    <v-col cols="10">
+    <v-col cols="12" sm="9" xs="9">
       <ProductList />
     </v-col>
   </v-row>

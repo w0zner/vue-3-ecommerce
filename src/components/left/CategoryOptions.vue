@@ -24,7 +24,7 @@
 
 <template>
     <v-list-subheader>Categorias</v-list-subheader>
-        <v-list-item link :active="$route.name === 'home'" @click="clearCategory()">
+        <v-list-item link :active="$route.name === 'home'" @click="clearCategory()" v-if="!loading">
             <v-list-item-title>
                 Todos
             </v-list-item-title>
