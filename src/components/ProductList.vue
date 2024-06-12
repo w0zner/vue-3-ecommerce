@@ -36,7 +36,12 @@
         </div>        
 
         <v-row v-else>
-            <v-col v-for="product in products" :key="product.id" cols="12" sm="6" md="4" lg="3">
+            <v-col cols="12"  v-if="products?.length === 0" >
+                <v-alert border="bottom" border-color="orange" elevation="2">
+                    <span class="d-flex justify-center align-center h-100" style="font-style: italic; color: lightgray; font-size: 14px;">No hay productos para esta sección.</span>
+                </v-alert>
+            </v-col>
+            <v-col v-else v-for="product in products" :key="product.id" cols="12" sm="6" md="4" lg="4">
                 <ProductCard  :product="product"/>
             </v-col>
         </v-row>

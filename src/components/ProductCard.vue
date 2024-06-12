@@ -35,15 +35,16 @@
 
 <template>
     <v-card  variant="tonal">
-
         <v-img class="align-end text-white"
-        height="200px"
-        :src="productImageUrl"
-        cover>
-        <v-card-title>{{ product.name }}</v-card-title>
+            height="200px"
+            :src="productImageUrl"
+            cover>
+            <v-card-title >
+                <v-chip label style="box-shadow: -1px 6px 51px 5px rgba(0,0,0,0.75);">
+                    {{ product.name }}
+                </v-chip>
+            </v-card-title>
         </v-img>
-
-        
 
         <v-card-text>
             <p class="mb-4">Esta es una descripción de ejemplo</p>
@@ -51,12 +52,9 @@
         </v-card-text>
     
         <v-card-actions>
-            <v-btn @click="onClickAddProduct" color="orange">
+            <v-btn @click="onClickAddProduct" color="orange" variant="tonal">
                 Agregar al carrito
             </v-btn>
         </v-card-actions> 
-    
     </v-card>
-
-
 </template>

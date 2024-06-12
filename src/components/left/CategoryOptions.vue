@@ -30,7 +30,7 @@
             </v-list-item-title>
         </v-list-item>
 
-        <v-progress-linear indeterminate v-if="loading" color="orange" />
+        <v-progress-linear indeterminate v-if="loading" color="green-lighten-1" />
 
         <v-list-item v-else v-for="category in categories" :key="category.id" link 
             :active="$route.name === 'category' && Number($route.params.categoryId) === category.id" @click="goToCategory(category.id)">
